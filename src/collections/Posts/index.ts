@@ -129,6 +129,19 @@ export const Posts: CollectionConfig<'posts'> = {
               hasMany: true,
               relationTo: 'categories',
             },
+            {
+              name: 'tags',
+              type: 'array',
+              admin: {
+                position: 'sidebar',
+              },
+              fields: [
+                {
+                  name: 'tag',
+                  type: 'text',
+                },
+              ],
+            },
           ],
           label: 'Meta',
         },

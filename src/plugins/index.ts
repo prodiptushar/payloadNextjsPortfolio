@@ -1,4 +1,5 @@
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
+import { mcpPlugin } from '@payloadcms/plugin-mcp'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
@@ -86,6 +87,33 @@ export const plugins: Plugin[] = [
     searchOverrides: {
       fields: ({ defaultFields }) => {
         return [...defaultFields, ...searchFields]
+      },
+    },
+  }),
+  mcpPlugin({
+    collections: {
+      projects: { enabled: true, description: 'Portfolio case studies — title, summary, metrics, tech stack' },
+      services: { enabled: true, description: 'Services offered to doctors and clinics' },
+      skills: { enabled: true, description: 'Skills and tech stack, grouped by category' },
+      timeline: { enabled: true, description: 'Dual-track medical/dev career timeline' },
+      testimonials: { enabled: true, description: 'Client testimonials and social proof' },
+      posts: { enabled: true, description: 'Blog posts' },
+      pages: { enabled: true, description: 'CMS pages' },
+      media: { enabled: true, description: 'Uploaded media assets' },
+      categories: { enabled: true, description: 'Blog categories' },
+      users: { enabled: false, description: 'Admin users' },
+    },
+    globals: {
+      'site-settings': { enabled: true, description: 'Global site identity, SEO defaults, and socials' },
+      hero: { enabled: true, description: 'Homepage hero content and availability status' },
+      header: { enabled: true, description: 'Site navigation' },
+      footer: { enabled: true, description: 'Site footer navigation' },
+    },
+    mcp: {
+      serverOptions: {
+        serverInfo: { name: 'Payload MCP Server', version: '1.0.0' },
+        instructions:
+          'Content backend for the Prodip Kumar portfolio. Read and update collections (projects, services, skills, timeline, testimonials, posts) and globals (site-settings, hero, header, footer).',
       },
     },
   }),

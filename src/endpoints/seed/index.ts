@@ -20,7 +20,7 @@ const collections: CollectionSlug[] = [
   'search',
 ]
 
-const globals: GlobalSlug[] = ['header', 'footer']
+const globals: GlobalSlug[] = ['header', 'footer', 'site-settings', 'hero']
 
 const categories = ['Technology', 'News', 'Finance', 'Design', 'Software', 'Engineering']
 
@@ -48,9 +48,7 @@ export const seed = async ({
     globals.map((global) =>
       payload.updateGlobal({
         slug: global,
-        data: {
-          navItems: [],
-        },
+        data: (global === 'header' || global === 'footer' ? { navItems: [] } : {}) as never,
         depth: 0,
         context: {
           disableRevalidate: true,

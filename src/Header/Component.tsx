@@ -4,6 +4,7 @@ import React from 'react'
 
 export async function Header() {
   const headerData = await getCachedGlobal('header', 1)()
+  const siteSettings = await getCachedGlobal('site-settings', 1)()
 
-  return <HeaderClient data={headerData} />
+  return <HeaderClient data={headerData} siteSettings={siteSettings} />
 }

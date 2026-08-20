@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
@@ -22,10 +21,13 @@
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@payloadcms/admin-bar": "3.88.0",
+    "@payloadcms/db-postgres": "3.88.0",
     "@payloadcms/live-preview-react": "3.88.0",
     "@payloadcms/next": "3.88.0",
     "@payloadcms/plugin-form-builder": "3.88.0",
+    "@payloadcms/plugin-mcp": "^3.88.0",
     "@payloadcms/plugin-nested-docs": "3.88.0",
     "@payloadcms/plugin-redirects": "3.88.0",
     "@payloadcms/plugin-search": "3.88.0",
@@ -42,17 +44,16 @@
     "dotenv": "16.4.7",
     "geist": "^1.3.0",
     "graphql": "^16.8.2",
+    "gsap": "^3.15.0",
     "lucide-react": "0.563.0",
     "next": "16.3.0",
-    "next-sitemap": "^4.2.3",
     "payload": "3.88.0",
     "prism-react-renderer": "^2.3.1",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-hook-form": "7.71.1",
     "sharp": "0.34.2",
-    "tailwind-merge": "^3.4.0",
-    "@payloadcms/db-postgres": "3.88.0"
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
