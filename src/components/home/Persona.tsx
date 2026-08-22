@@ -1,5 +1,5 @@
 'use client'
-import { SpiralPersonaStack } from '@/components/gsap/SpiralPersonaStack'
+import { DrawnPathReveal } from '@/components/gsap/DrawnPathReveal'
 import { Reveal } from '@/components/gsap/Reveal'
 import React from 'react'
 
@@ -13,7 +13,7 @@ export function Persona() {
             Three kinds of practices. One credibility problem.
           </Reveal>
         </div>
-        <SpiralPersonaStack />
+        <DrawnPathReveal />
       </div>
     </section>
   )

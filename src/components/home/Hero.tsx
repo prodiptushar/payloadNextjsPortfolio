@@ -96,7 +96,7 @@ export function Hero({ hero }: { hero: HeroGlobal }) {
           )}
         </div>
 
-        <Parallax speed={0.15} className="hero-portrait-wrap">
+        <Parallax speed={0.15} className="hero-portrait-wrap animate-float">
           {hero?.portrait && typeof hero.portrait === 'object' ? (
             <Media
               resource={hero.portrait}

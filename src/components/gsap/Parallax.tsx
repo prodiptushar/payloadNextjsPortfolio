@@ -43,8 +43,8 @@ export function Parallax({ children, speed = 0.3, className }: ParallaxProps) {
   )
 
   return (
-    <div ref={wrapRef} className={className} style={{ overflow: 'hidden' }}>
-      <div ref={ref}>{children}</div>
+    <div ref={wrapRef} className={className}>
+      <div ref={ref} style={{ overflow: 'hidden' }}>{children}</div>
     </div>
   )
 }

@@ -30,7 +30,7 @@ function buildPath(): string {
 
 const ECG_PATH = buildPath()
 
-export function SpiralPersonaStack() {
+export function DrawnPathReveal() {
   const containerRef = useRef<HTMLDivElement>(null)
   const pathRef = useRef<SVGPathElement>(null)
   const glowRefs = useRef<(SVGCircleElement | null)[]>([])
@@ -101,24 +101,24 @@ export function SpiralPersonaStack() {
   )
 
   return (
-    <div ref={containerRef} className="persona-draw">
-      <div className="persona-draw__stage">
-        <div className="persona-draw__path-col">
+    <div ref={containerRef} className="drawn-path">
+      <div className="drawn-path__stage">
+        <div className="drawn-path__path-col">
           <svg
             viewBox={`0 0 100 ${PATH_H}`}
             preserveAspectRatio="xMidYMid meet"
-            className="persona-draw__svg"
+            className="drawn-path__svg"
             aria-hidden
           >
-            <path d={ECG_PATH} className="persona-draw__ghost" />
-            <path ref={pathRef} d={ECG_PATH} className="persona-draw__line" />
+            <path d={ECG_PATH} className="drawn-path__ghost" />
+            <path ref={pathRef} d={ECG_PATH} className="drawn-path__line" />
             {personas.map((p, i) => (
               <circle
                 key={p.label}
                 cx={50}
                 cy={p.y}
                 r={4}
-                className="persona-draw__node"
+                className="drawn-path__node"
                 ref={(el) => {
                   glowRefs.current[i] = el
                 }}
@@ -127,19 +127,19 @@ export function SpiralPersonaStack() {
           </svg>
         </div>
 
-        <div className="persona-draw__cards">
+        <div className="drawn-path__cards">
           {personas.map((p, i) => (
             <div
               key={p.label}
               ref={(el) => {
                 cardsRef.current[i] = el
               }}
-              className="persona-draw__card"
+              className="drawn-path__card"
             >
-              <span className="persona-card__mono">0{i + 1} / Who I help</span>
-              <h3 className="persona-card__label">{p.label}</h3>
-              <p className="persona-card__sub">{p.sub}</p>
-              <Link href="/services" className="persona-card__cta">
+              <span className="drawn-path-card__mono">0{i + 1} / Who I help</span>
+              <h3 className="drawn-path-card__label">{p.label}</h3>
+              <p className="drawn-path-card__sub">{p.sub}</p>
+              <Link href="/services" className="drawn-path-card__cta">
                 View services →
               </Link>
             </div>
