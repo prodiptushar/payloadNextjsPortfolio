@@ -43,7 +43,7 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     ...(useBlob
-      ? { disableLocalStorage: true }
+      ? { disableLocalStorage: true, staticDir: '/tmp/media' }
       : { staticDir: path.resolve(dirname, '../../public/media') }),
     adminThumbnail: 'thumbnail',
     focalPoint: true,
