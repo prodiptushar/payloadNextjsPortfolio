@@ -53,7 +53,6 @@
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-hook-form": "7.71.1",
-    "sharp": "0.34.2",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
@@ -87,7 +86,6 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "sharp",
       "esbuild",
       "unrs-resolver"
     ]

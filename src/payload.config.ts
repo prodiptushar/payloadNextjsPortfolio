@@ -1,5 +1,4 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import sharp from 'sharp'
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
@@ -66,6 +65,7 @@ export default buildConfig({
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   db: postgresAdapter({
+    push: false,
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
@@ -87,7 +87,6 @@ export default buildConfig({
   globals: [Header, Footer, SiteSettings, Hero],
   plugins,
   secret: process.env.PAYLOAD_SECRET,
-  sharp,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },

@@ -18,14 +18,18 @@ const nextConfig: NextConfig = {
     loadPaths: ['./node_modules/@payloadcms/ui/dist/scss/'],
   },
   images: {
+    unoptimized: false,
     localPatterns: [
       {
         pathname: '/api/media/file/**',
       },
     ],
-    qualities: [100],
     remotePatterns: [
-      ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+      },
+      ...[NEXT_PUBLIC_SERVER_URL].map((item) => {
         const url = new URL(item)
 
         return {
