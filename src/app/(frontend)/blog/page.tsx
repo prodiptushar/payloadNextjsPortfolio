@@ -41,7 +41,6 @@ export default async function BlogPage() {
                         resource={cover}
                         size="(max-width: 768px) 100vw, 33vw"
                         className="h-full transition-transform duration-500 group-hover:scale-[1.03]"
-                        imgClassName="h-full w-full object-cover"
                       />
                     </div>
                   )}
