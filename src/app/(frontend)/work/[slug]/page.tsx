@@ -81,7 +81,7 @@ export default async function WorkDetail({ params: paramsPromise }: Args) {
         {cover && (
           <Reveal className="mt-12">
             <div className="aspect-[16/9] overflow-hidden rounded-sm border border-hairline">
-              <Media resource={cover} size="(max-width: 768px) 100vw, 70vw" className="h-full" />
+              <Media resource={cover} size="(max-width: 768px) 100vw, 70vw" className="h-full" imgClassName="h-full w-full object-cover" />
             </div>
           </Reveal>
         )}
@@ -94,7 +94,7 @@ export default async function WorkDetail({ params: paramsPromise }: Args) {
               return (
                 <Reveal key={idx} delay={idx * 0.06}>
                   <div className="aspect-[4/3] overflow-hidden rounded-sm border border-hairline">
-                    <Media resource={img} size="(max-width: 768px) 100vw, 33vw" className="h-full" />
+                    <Media resource={img} size="(max-width: 768px) 100vw, 33vw" className="h-full" imgClassName="h-full w-full object-cover" />
                   </div>
                 </Reveal>
               )

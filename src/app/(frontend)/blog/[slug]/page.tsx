@@ -81,7 +81,7 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
 
         {cover && (
           <div className="mt-10 aspect-[16/9] overflow-hidden rounded-sm border border-hairline">
-            <Media resource={cover} size="(max-width: 768px) 100vw, 48rem" className="h-full" />
+            <Media resource={cover} size="(max-width: 768px) 100vw, 48rem" className="h-full" imgClassName="h-full w-full object-cover" />
           </div>
         )}
 

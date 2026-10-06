@@ -54,7 +54,7 @@ export default async function AboutPage() {
                 resource={portrait}
                 size="(max-width: 768px) 100vw, 40vw"
                 className="h-full"
-                imgClassName="hero-portrait__img"
+                imgClassName="hero-portrait__img h-full w-full object-cover"
               />
             </div>
           )}

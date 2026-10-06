@@ -86,6 +86,7 @@ export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) 
                   resource={photo}
                   size="48px"
                   className="h-11 w-11 shrink-0 overflow-hidden rounded-full"
+                  imgClassName="h-full w-full object-cover"
                 />
               )}
               <div>

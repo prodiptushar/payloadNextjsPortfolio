@@ -36,7 +36,7 @@ export default async function ServicesPage() {
               <div className="grid items-center gap-8 rounded-sm border border-hairline bg-bg-raised p-8 md:grid-cols-[auto_1fr]">
                 {icon && (
                   <div className="h-16 w-16 shrink-0 overflow-hidden rounded-sm border border-hairline">
-                    <Media resource={icon} size="64px" className="h-full" />
+                    <Media resource={icon} size="64px" className="h-full" imgClassName="h-full w-full object-cover" />
                   </div>
                 )}
                 <div>
