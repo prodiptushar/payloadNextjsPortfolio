@@ -291,6 +291,7 @@ There is also a simplified [one click deploy](https://github.com/payloadcms/payl
 
 ### Self-hosting
 
+
 Before deploying your app, you need to:
 
 1. Ensure your app builds and serves in production. See [Production](#production) for more details.
