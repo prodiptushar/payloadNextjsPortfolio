@@ -140,7 +140,7 @@ export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) 
               </h3>
               <div className="mt-4 aspect-[2/1] overflow-hidden rounded-sm border border-hairline bg-bg">
                 <img
-                  src="https://github-contributions-api.jogruber.de/v5/Artrcuppp?y=last&theme=dark&label=0&format=svg"
+                  src="https://github-contributions-api.jogruber.de/v5/prodipkumar?y=last&theme=dark&label=0&format=svg"
                   alt="GitHub contribution graph"
                   className="h-full w-full object-cover"
                   loading="lazy"

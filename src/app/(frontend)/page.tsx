@@ -19,10 +19,14 @@ import {
   getTimeline,
 } from '@/utilities/getData'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 import { getServerSideURL } from '@/utilities/getURL'
 import React from 'react'
 
 import type { Hero as HeroGlobal, SiteSetting } from '@/payload-types'
+
+export const dynamic = 'force-static'
+export const revalidate = 600
 
 export default async function HomePage() {
   const hero = (await getCachedGlobal('hero', 2)()) as HeroGlobal
@@ -34,6 +38,9 @@ export default async function HomePage() {
   const testimonials = await getTestimonials()
   const posts = await getPosts(3)
 
+  const cvFile = hero?.cvFile && typeof hero.cvFile === 'object' ? hero.cvFile : null
+  const cvUrl = cvFile?.url ? getMediaUrl(cvFile.url, cvFile.updatedAt) : null
+
   return (
     <main>
       <Hero hero={hero} />
@@ -44,7 +51,7 @@ export default async function HomePage() {
       <Timeline entries={timeline} />
       <Testimonials testimonials={testimonials} />
       <BlogTeaser posts={posts} />
-      <Contact siteSettings={siteSettings} />
+      <Contact siteSettings={siteSettings} cvUrl={cvUrl} />
     </main>
   )
 }

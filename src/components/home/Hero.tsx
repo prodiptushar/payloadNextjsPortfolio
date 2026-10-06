@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react'
 import { gsap, SplitText } from '@/lib/gsap-config'
 import { Media } from '@/components/Media'
 import { Parallax } from '@/components/gsap/Parallax'
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 import Link from 'next/link'
 import React, { useRef } from 'react'
 
@@ -21,6 +22,10 @@ export function Hero({ hero }: { hero: HeroGlobal }) {
       if (reduce) return
 
       const split = new SplitText(headline, { type: 'words' })
+      if (!split.words.length) {
+        split.revert()
+        return
+      }
 
       // Wrap each word in an overflow-hidden span for a clip wipe reveal
       split.words.forEach((word) => {
@@ -54,6 +59,8 @@ export function Hero({ hero }: { hero: HeroGlobal }) {
   const status = availability?.status || 'available'
   const statusLabel =
     status === 'available' ? 'Available' : status === 'limited' ? 'Limited availability' : 'Currently booked'
+  const cvFile = hero?.cvFile && typeof hero.cvFile === 'object' ? hero.cvFile : null
+  const cvUrl = cvFile?.url ? getMediaUrl(cvFile.url, cvFile.updatedAt) : null
 
   return (
     <section data-vitals className="section-pad relative overflow-hidden" aria-label="Intro">
@@ -75,9 +82,11 @@ export function Hero({ hero }: { hero: HeroGlobal }) {
             >
               {hero?.primaryCtaLabel || 'Start a Project'}
             </Link>
-            {hero?.cvFile && (
+            {cvUrl && (
               <a
-                href="/resume.pdf"
+                href={cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mono-sm rounded-sm border border-hairline px-6 py-3 text-text transition-colors hover:border-accent/60 hover:text-accent"
               >
                 Download CV ↓

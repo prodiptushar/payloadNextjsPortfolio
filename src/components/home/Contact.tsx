@@ -7,7 +7,7 @@ import type { SiteSetting } from '@/payload-types'
 
 const PROJECT_TYPES = ['Website', 'AI & Automation', 'Local SEO', 'Reviews & Reputation', 'Something else']
 
-export function Contact({ siteSettings }: { siteSettings: SiteSetting }) {
+export function Contact({ siteSettings, cvUrl }: { siteSettings: SiteSetting; cvUrl?: string | null }) {
   const [sent, setSent] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -153,10 +153,17 @@ export function Contact({ siteSettings }: { siteSettings: SiteSetting }) {
                 </a>
               )
             })}
-            <a href="/resume.pdf" className="contact-link mono-sm flex items-center gap-3 text-text">
-              <span className="h-1 w-3 bg-accent-dim" aria-hidden />
-              Download CV ↓
-            </a>
+            {cvUrl && (
+              <a
+                href={cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-link mono-sm flex items-center gap-3 text-text"
+              >
+                <span className="h-1 w-3 bg-accent-dim" aria-hidden />
+                Download CV ↓
+              </a>
+            )}
           </div>
         </div>
       </div>
