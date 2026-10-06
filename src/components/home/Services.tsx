@@ -67,7 +67,7 @@ export function Services({ services }: { services: Service[] }) {
               >
                 <div className="service-panel">
                   {icon ? (
-                    <div className="aspect-[4/3] overflow-hidden rounded-sm border border-hairline bg-bg">
+                    <div className="aspect-[4/3] overflow-hidden rounded-sm bg-bg">
                       <Media resource={icon} size="(max-width: 768px) 100vw, 50vw" className="flex h-full items-center justify-center" imgClassName="max-h-full max-w-full" />
                     </div>
                   ) : (
